@@ -11,7 +11,8 @@
 
 #import "RCTBridgeModule.h"
 #import "RCTEventEmitter.h"
+#import "TapGestureRecognizer.h"
 
-@interface ReactNativeTvosController : RCTEventEmitter <RCTBridgeModule>
+@interface ReactNativeTvosController : RCTEventEmitter <RCTBridgeModule, TapGestureRecognizerDelegate>
 
 @end

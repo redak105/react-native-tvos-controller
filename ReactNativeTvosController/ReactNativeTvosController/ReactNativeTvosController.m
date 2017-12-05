@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ReactNativeTvosController.h"
 
+#define TAP @"TAP"
+#define SWIPE @"SWIPE"
+#define LONGPRESS @"LONGPRESS"
+#define PAN @"PAN"
 
 @interface ReactNativeTvosController()
 
@@ -31,7 +35,9 @@ RCT_EXPORT_METHOD(connect) {
     [self addTapGestureRecognizerWithType:rootView pressType:UIPressTypeDownArrow selector:@selector(respondToDownArrowButton)];
     [self addTapGestureRecognizerWithType:rootView pressType:UIPressTypeLeftArrow selector:@selector(respondToLeftArrowButton)];
     [self addTapGestureRecognizerWithType:rootView pressType:UIPressTypeRightArrow selector:@selector(respondToRightArrowButton)];
-    
+  
+    [self addTapRecognizerWithType:rootView selector:@selector(respondToTapGesture)];
+  
     [self addSwipeGestureRecognizerWithDirection:rootView direction:UISwipeGestureRecognizerDirectionRight];
     [self addSwipeGestureRecognizerWithDirection:rootView direction:UISwipeGestureRecognizerDirectionLeft];
     [self addSwipeGestureRecognizerWithDirection:rootView direction:UISwipeGestureRecognizerDirectionUp];
@@ -54,13 +60,18 @@ RCT_EXPORT_METHOD(disablePanGesture) {
 }
 
 - (NSArray<NSString *> *)supportedEvents {
-    return @[@"TAP", @"SWIPE", @"LONGPRESS", @"PAN"];
+    return @[TAP, SWIPE, LONGPRESS, PAN];
 }
 
 - (UIViewController *)getRootViewController
 {
     UIViewController *rootVC=[[UIApplication sharedApplication].delegate window].rootViewController;
     return rootVC;
+}
+
+- (void)addTapRecognizerWithType:(UIView *)view selector:(SEL)selector {
+    TapGestureRecognizer *tapGestureRecognizer = [[TapGestureRecognizer alloc] initWithTarget:self action:selector];
+    [rootView addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)addTapGestureRecognizerWithType:(UIView *)view pressType:(UIPressType)pressType selector:(SEL)selector {
@@ -80,44 +91,51 @@ RCT_EXPORT_METHOD(disablePanGesture) {
     [view addGestureRecognizer:longPressGestureRecognizer];
 }
 
+-(void)tap {
+  [self sendEventWithName:TAP body:@{@"type": @"Tap",
+                                     @"code": @0
+                                     }];
+}
+
+
 - (void)respondToPlayPauseButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"PlayPause",
+    [self sendEventWithName:TAP body:@{@"type": @"PlayPause",
                                           @"code": @0
                                           }];
 }
 
 - (void)respondToMenuButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"Menu",
+    [self sendEventWithName:TAP body:@{@"type": @"Menu",
                                           @"code": @1
                                           }];
 }
 
 - (void)respondToSelectButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"Select",
+    [self sendEventWithName:TAP body:@{@"type": @"Select",
                                           @"code": @2
                                           }];
 }
 
 - (void)respondToUpArrowButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"UpArrow",
+    [self sendEventWithName:TAP body:@{@"type": @"UpArrow",
                                           @"code": @3
                                           }];
 }
 
 - (void)respondToDownArrowButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"DownArrow",
+    [self sendEventWithName:TAP body:@{@"type": @"DownArrow",
                                           @"code": @4
                                           }];
 }
 
 - (void)respondToLeftArrowButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"LeftArrow",
+    [self sendEventWithName:TAP body:@{@"type": @"LeftArrow",
                                           @"code": @5
                                           }];
 }
 
 - (void)respondToRightArrowButton {
-    [self sendEventWithName:@"TAP" body:@{@"type": @"RightArrow",
+    [self sendEventWithName:TAP body:@{@"type": @"RightArrow",
                                           @"code": @6
                                           }];
 }
@@ -125,22 +143,22 @@ RCT_EXPORT_METHOD(disablePanGesture) {
 - (void)respondToSwipeGesture:(UISwipeGestureRecognizer *)gesture {
     switch(gesture.direction) {
         case UISwipeGestureRecognizerDirectionRight :
-            [self sendEventWithName:@"SWIPE" body:@{@"direction": @"Right",
+            [self sendEventWithName:SWIPE body:@{@"direction": @"Right",
                                                   @"code": @0
                                                   }];
             break;
         case UISwipeGestureRecognizerDirectionDown :
-            [self sendEventWithName:@"SWIPE" body:@{@"direction": @"Down",
+            [self sendEventWithName:SWIPE body:@{@"direction": @"Down",
                                                   @"code": @1
                                                   }];
             break;
         case UISwipeGestureRecognizerDirectionLeft :
-            [self sendEventWithName:@"SWIPE" body:@{@"direction": @"Left",
+            [self sendEventWithName:SWIPE body:@{@"direction": @"Left",
                                                   @"code": @2
                                                   }];
             break;
         case UISwipeGestureRecognizerDirectionUp :
-            [self sendEventWithName:@"SWIPE" body:@{@"direction": @"Up",
+            [self sendEventWithName:SWIPE body:@{@"direction": @"Up",
                                                   @"code": @3
                                                   }];
             break;

@@ -19,6 +19,7 @@
 		68B7B9D41E2B6DF30011519F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B7B9D11E2B6DF30011519F /* AppDelegate.m */; };
 		68B7B9D51E2B6DF30011519F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68B7B9D21E2B6DF30011519F /* Images.xcassets */; };
 		68B7B9D61E2B6DF30011519F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B7B9D31E2B6DF30011519F /* main.m */; };
+		7885A91A1FD6DDA200D9FC21 /* TapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7885A9191FD6DDA200D9FC21 /* TapGestureRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,8 @@
 		68B7B9D11E2B6DF30011519F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		68B7B9D21E2B6DF30011519F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		68B7B9D31E2B6DF30011519F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7885A9181FD6DDA100D9FC21 /* TapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapGestureRecognizer.h; path = ../../../ReactNativeTvosController/ReactNativeTvosController/TapGestureRecognizer.h; sourceTree = "<group>"; };
+		7885A9191FD6DDA200D9FC21 /* TapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapGestureRecognizer.m; path = ../../../ReactNativeTvosController/ReactNativeTvosController/TapGestureRecognizer.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +282,8 @@
 		68B7B9991E2B6D540011519F /* RNTVOS */ = {
 			isa = PBXGroup;
 			children = (
+				7885A9181FD6DDA100D9FC21 /* TapGestureRecognizer.h */,
+				7885A9191FD6DDA200D9FC21 /* TapGestureRecognizer.m */,
 				68B7B9D01E2B6DF30011519F /* AppDelegate.h */,
 				68B7B9D11E2B6DF30011519F /* AppDelegate.m */,
 				310569241EE8348A00071FAC /* ReactNativeTvosController.h */,
@@ -377,6 +382,7 @@
 				TargetAttributes = {
 					68B7B9971E2B6D540011519F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9ST2AK88R7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -598,6 +604,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				310569261EE8348A00071FAC /* ReactNativeTvosController.m in Sources */,
+				7885A91A1FD6DDA200D9FC21 /* TapGestureRecognizer.m in Sources */,
 				68B7B9D61E2B6DF30011519F /* main.m in Sources */,
 				68B7B9D41E2B6DF30011519F /* AppDelegate.m in Sources */,
 			);
@@ -616,6 +623,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9ST2AK88R7;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = RNTVOS/Info.plist;
@@ -625,7 +633,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.RNTVOS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.controller.test.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -633,6 +641,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Debug;
 		};
@@ -647,6 +656,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9ST2AK88R7;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = RNTVOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -655,13 +665,14 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.RNTVOS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.controller.test.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Release;
 		};

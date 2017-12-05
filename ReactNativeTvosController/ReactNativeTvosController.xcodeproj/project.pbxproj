@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68B89E161E3E087000D4F6FF /* ReactNativeTvosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B89E151E3E087000D4F6FF /* ReactNativeTvosController.m */; };
 		68B89E171E3E087000D4F6FF /* ReactNativeTvosController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68B89E141E3E087000D4F6FF /* ReactNativeTvosController.h */; };
+		7885A8F91FD6CCEB00D9FC21 /* TapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7885A8F81FD6CCEB00D9FC21 /* TapGestureRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		68B89E111E3E086F00D4F6FF /* libReactNativeTvosController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeTvosController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B89E141E3E087000D4F6FF /* ReactNativeTvosController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeTvosController.h; sourceTree = "<group>"; };
 		68B89E151E3E087000D4F6FF /* ReactNativeTvosController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeTvosController.m; sourceTree = "<group>"; };
+		7885A8F71FD6CCEB00D9FC21 /* TapGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapGestureRecognizer.h; sourceTree = "<group>"; };
+		7885A8F81FD6CCEB00D9FC21 /* TapGestureRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapGestureRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 			children = (
 				68B89E141E3E087000D4F6FF /* ReactNativeTvosController.h */,
 				68B89E151E3E087000D4F6FF /* ReactNativeTvosController.m */,
+				7885A8F71FD6CCEB00D9FC21 /* TapGestureRecognizer.h */,
+				7885A8F81FD6CCEB00D9FC21 /* TapGestureRecognizer.m */,
 			);
 			path = ReactNativeTvosController;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68B89E161E3E087000D4F6FF /* ReactNativeTvosController.m in Sources */,
+				7885A8F91FD6CCEB00D9FC21 /* TapGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +277,7 @@
 				68B89E1C1E3E087000D4F6FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
