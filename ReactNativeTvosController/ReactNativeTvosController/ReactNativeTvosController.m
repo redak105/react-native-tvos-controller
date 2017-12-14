@@ -36,7 +36,7 @@ RCT_EXPORT_METHOD(connect) {
     [self addTapGestureRecognizerWithType:rootView pressType:UIPressTypeLeftArrow selector:@selector(respondToLeftArrowButton)];
     [self addTapGestureRecognizerWithType:rootView pressType:UIPressTypeRightArrow selector:@selector(respondToRightArrowButton)];
   
-    [self addTapRecognizerWithType:rootView selector:@selector(respondToTapGesture)];
+    [self addTapRecognizerWithView:rootView selector:@selector(respondToTapGesture)];
   
     [self addSwipeGestureRecognizerWithDirection:rootView direction:UISwipeGestureRecognizerDirectionRight];
     [self addSwipeGestureRecognizerWithDirection:rootView direction:UISwipeGestureRecognizerDirectionLeft];
@@ -69,8 +69,10 @@ RCT_EXPORT_METHOD(disablePanGesture) {
     return rootVC;
 }
 
-- (void)addTapRecognizerWithType:(UIView *)view selector:(SEL)selector {
+- (void)addTapRecognizerWithView:(UIView *)view selector:(SEL)selector {
     TapGestureRecognizer *tapGestureRecognizer = [[TapGestureRecognizer alloc] initWithTarget:self action:selector];
+    tapGestureRecognizer.delegateTap = self;
+    tapGestureRecognizer.delegate = self;
     [rootView addGestureRecognizer:tapGestureRecognizer];
 }
 
@@ -213,6 +215,24 @@ RCT_EXPORT_METHOD(disablePanGesture) {
       return nil;
   }
 }
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+  if ([gestureRecognizer isKindOfClass:[otherGestureRecognizer class]]) {
+    return false;
+  }
+  
+  return  true;
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+  if ([otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+    return true;
+  }
+  return false;
+}
+
 
 @end
 

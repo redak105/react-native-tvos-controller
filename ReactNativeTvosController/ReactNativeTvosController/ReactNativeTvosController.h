@@ -6,13 +6,10 @@
 //  Copyright © 2017年 yangchen. All rights reserved.
 //
 
-//#import <React/RCTBridgeModule.h>
-//#import <React/RCTEventEmitter.h>
-
 #import "RCTBridgeModule.h"
 #import "RCTEventEmitter.h"
 #import "TapGestureRecognizer.h"
 
-@interface ReactNativeTvosController : RCTEventEmitter <RCTBridgeModule, TapGestureRecognizerDelegate>
+@interface ReactNativeTvosController : RCTEventEmitter <RCTBridgeModule, TapGestureRecognizerDelegate, UIGestureRecognizerDelegate>
 
 @end
